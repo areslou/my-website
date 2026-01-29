@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brendan Portfolio</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Public+Sans:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-layout.css">
 </head>
 <body>
-    <div class="frame-container">
-        <div class="top-bar">
-            <iframe src="header.html" scrolling="auto"></iframe>
-        </div>
+
+    <header class="site-header">
+        <div class="header-bg"></div>
+        <a href="index.html" class="logo">Brendan<span>.</span></a>
         
-        <div class="main-stage">
-            <iframe src="home.html" name="winmain"></iframe>
+        <nav class="site-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="works.html">Works</a>
+            <a href="experience.html">Experience</a>
+            <a href="education.html">Education</a>
+            <a href="resume.html">Resume</a>
+            <a href="references.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content home-layout">
+        <div class="home-bg"></div>
+        
+        <div class="container">
+            <div class="pre-title">Hello, World!</div>
+            <h1>I am Brendan, <br> <span>Computer Engineering Student.</span></h1>
+            <div class="roles">
+                 Financial Risk & Analytics / Activities & Events Management / Scholar Services
+            </div>
         </div>
-    </div>
+    </main>
+
 </body>
 </html>

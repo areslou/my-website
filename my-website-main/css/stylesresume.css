@@ -6,12 +6,15 @@
   box-sizing: border-box;
 }
 
-body {
+/* CHANGED: 'body' renamed to '.resume-wrapper' */
+.resume-wrapper {
   font-family: "Inter", sans-serif;
-  background: #f0f4f8;
+  background: #f0f4f8; /* This now only applies to the resume area */
   color: #2d3748;
   line-height: 1.6;
   padding: 20px;
+  width: 100%;       /* Ensures it fills the width */
+  min-height: 100%;  /* Ensures it fills the height */
 }
 
 .container {
@@ -88,7 +91,7 @@ body {
   gap: 0;
 }
 
-/* Card Styling */
+
 .card {
   background: white;
   padding: 25px;
@@ -99,7 +102,8 @@ body {
   border-bottom: none;
 }
 
-.main-content .card:last-child {
+
+.resume-main-content .card:last-child {
   border-bottom: none;
 }
 
@@ -214,12 +218,12 @@ body {
   font-weight: 500;
 }
 
-/* Main Content */
-.main-content {
+
+.resume-main-content {
   background: white;
 }
 
-/* Timeline */
+
 .timeline-item {
   position: relative;
   padding-left: 35px;
@@ -375,7 +379,8 @@ body {
 }
 
 @media (max-width: 640px) {
-  body {
+  
+  .resume-wrapper {
     padding: 10px;
   }
   
@@ -412,7 +417,8 @@ body {
 }
 
 @media print {
-  body {
+  
+  .resume-wrapper {
     background: white;
     padding: 0;
   }

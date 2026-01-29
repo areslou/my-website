@@ -34,6 +34,19 @@ html {
   text-shadow: none;
 }
 
+/* --- HIDE SCROLLBAR --- */
+
+/* For Chrome, Safari, and newer Edge */
+.main-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* For Firefox, IE, and older Edge */
+.main-content {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
 /*
  * A better looking default horizontal rule
  */

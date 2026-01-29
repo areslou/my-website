@@ -1,9 +1,9 @@
-body {
-    background-color: #111111;
+.experience-wrapper {
+    /* Replaces 'body' */
     color: #b0b0b0;
-    font-family: 'Public Sans', sans-serif;
     padding: 60px 15%;
     animation: slideUp 0.8s ease;
+    width: 100%;
 }
 
 h2 { 
@@ -84,6 +84,17 @@ h2 {
     position: absolute;
     left: 0;
     font-weight: bold;
+}
+
+
+.main-content::-webkit-scrollbar {
+    display: none;
+}
+
+
+.main-content {
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
 }
 
 @keyframes slideUp { 

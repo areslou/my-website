@@ -1,15 +1,23 @@
-body {
-    background-color: #111111;
+/* UPDATED: 'body' selector changed to '.about-wrapper' 
+   to work inside the new main layout.
+*/
+.about-wrapper {
+    /* Background color and font-family are now handled by modern-layout.css on the body tag.
+       We keep text color, padding, and animation specific to this section. */
     color: #b0b0b0;
-    font-family: 'Public Sans', sans-serif;
     padding: 50px 10%;
     animation: fadeIn 1s ease;
+    width: 100%;
 }
 
 .content-grid { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
     gap: 60px; 
+    
+    /* ADDED: Keeps content centered and prevents it from stretching too wide */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h2 { 
@@ -46,6 +54,15 @@ p {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: 0.3s;
+}
+
+.main-content::-webkit-scrollbar {
+    display: none;
+}
+
+.main-content {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
 }
 
 .skills-list li:hover { 

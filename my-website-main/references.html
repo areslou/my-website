@@ -1,86 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Brendan Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Public+Sans:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/modern-layout.css">
     <link rel="stylesheet" href="css/references.css">
 </head>
 <body>
-    <h2>Get in Touch.</h2>
+
+    <header class="site-header">
+        <div class="header-bg"></div>
+        <a href="index.html" class="logo">Brendan<span>.</span></a>
+        <nav class="site-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="works.html">Works</a>
+            <a href="experience.html">Experience</a>
+            <a href="education.html">Education</a>
+            <a href="resume.html">Resume</a>
+            <a href="references.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content references-wrapper">
+        
+        <h2>Get in Touch.</h2>
     
-    <div class="contact-info">
-        brendanlou8@gmail.com | +63 977 388 8888
-    </div>
-
-    <div class="social-links">
-        <a href="https://www.facebook.com/brendan.millares.5/" target="_blank" title="Facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/alive.kaiserlou" target="_blank" title="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </div>
-
-    <p class="sub">Have a project or collaboration in mind? Send a message.</p>
-
-    <form action="https://formsubmit.co/brendanlou8@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="https://yourwebsite.com/references.html"> 
-        <input type="hidden" name="_captcha" value="false">
-
-        <div class="input-group">
-            <label>Name</label>
-            <input type="text" name="name" placeholder="Your Name" required>
+        <div class="contact-info">
+            brendanlou8@gmail.com | +63 977 388 8888
         </div>
-        <div class="input-group">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="Your Email Address" required>
+
+        <div class="social-links">
+            <a href="https://www.facebook.com/brendan.millares.5/" target="_blank" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/alive.kaiserlou" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
         </div>
-        <div class="input-group">
-            <label>Message</label>
-            <textarea name="message" rows="4" placeholder="Tell me about your project" required></textarea>
+
+        <p class="sub">Have a project or collaboration in mind? Send a message.</p>
+
+        <form action="https://formsubmit.co/brendanlou8@gmail.com" method="POST">
+            <input type="hidden" name="_next" value="https://yourwebsite.com/references.html"> 
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="input-group">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Your Email Address" required>
+            </div>
+            <div class="input-group">
+                <label>Message</label>
+                <textarea name="message" rows="4" placeholder="Tell me about your project" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="ref-section">
+            <h2>Professional References</h2>
+            <div class="ref-grid">
+                <div class="ref-card">
+                    <h3>Dr. Alexander Sterling</h3>
+                    <h4>Chief Technology Officer</h4>
+                    <p>Nexus Solutions Global</p>
+                    <p>a.sterling@nexusglobal.com</p>
+                    <p>+63 917 123 4567</p>
+                </div>
+
+                <div class="ref-card">
+                    <h3>Ms. Cassandra Wu</h3>
+                    <h4>Head of Financial Analytics</h4>
+                    <p>Vanguard Analytics</p>
+                    <p>c.wu@vanguard.com</p>
+                    <p>+63 918 987 6543</p>
+                </div>
+
+                <div class="ref-card">
+                    <h3>Engr. Robert Valdes</h3>
+                    <h4>Dean, College of Engineering</h4>
+                    <p>De La Salle University</p>
+                    <p>robert.valdes@dlsu.edu.ph</p>
+                    <p>+63 920 111 2222</p>
+                </div>
+                
+                <div class="ref-card">
+                    <h3>Mr. Julian Thorne</h3>
+                    <h4>Director for Operations & Media</h4>
+                    <p>Innovate Tech Inc.</p>
+                    <p>j.thorne@innovatetech.com</p>
+                    <p>+63 915 555 8888</p>
+                </div>
+            </div>
         </div>
-        <button type="submit">Send Message</button>
-    </form>
 
-    <div class="ref-section">
-        <h2>Professional References</h2>
-        <div class="ref-grid">
-            <div class="ref-card">
-                <h3>Dr. Alexander Sterling</h3>
-                <h4>Chief Technology Officer</h4>
-                <p>Nexus Solutions Global</p>
-                <p>a.sterling@nexusglobal.com</p>
-                <p>+63 917 123 4567</p>
-            </div>
-
-            <div class="ref-card">
-                <h3>Ms. Cassandra Wu</h3>
-                <h4>Head of Financial Analytics</h4>
-                <p>Vanguard Analytics</p>
-                <p>c.wu@vanguard.com</p>
-                <p>+63 918 987 6543</p>
-            </div>
-
-            <div class="ref-card">
-                <h3>Engr. Robert Valdes</h3>
-                <h4>Dean, College of Engineering</h4>
-                <p>De La Salle University</p>
-                <p>robert.valdes@dlsu.edu.ph</p>
-                <p>+63 920 111 2222</p>
-            </div>
-            
-            <div class="ref-card">
-                <h3>Mr. Julian Thorne</h3>
-                <h4>Director for Operations & Media</h4>
-                <p>Innovate Tech Inc.</p>
-                <p>j.thorne@innovatetech.com</p>
-                <p>+63 915 555 8888</p>
-            </div>
+        <div class="credits">
+            Design Reference: <a href="https://themewagon.github.io/luther/" target="_blank">Luther Template</a>
         </div>
-    </div>
 
-    <div class="credits">
-        Design Reference: <a href="https://themewagon.github.io/luther/" target="_blank">Luther Template</a>
-    </div>
+    </main>
 </body>
 </html>

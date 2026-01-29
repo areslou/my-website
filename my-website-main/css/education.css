@@ -1,9 +1,8 @@
-body {
-    background-color: #111111;
+.education-wrapper {
+    /* Replaces 'body' */
     color: #b0b0b0;
-    font-family: 'Public Sans', sans-serif;
     padding: 60px 15%;
-    overflow-x: hidden;
+    width: 100%;
 }
 
 h2 { 
@@ -63,6 +62,15 @@ h3 {
     font-size: 16px;
     margin-bottom: 20px;
     font-style: italic;
+}
+
+.main-content::-webkit-scrollbar {
+    display: none;
+}
+
+.main-content {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
 }
 
 p {

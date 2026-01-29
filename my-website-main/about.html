@@ -1,40 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Brendan Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Public+Sans:wght@300;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/modern-layout.css">
     <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
-    <div class="content-grid">
-        <div class="left">
-            <h2>About Me</h2>
-            <img src="img/Millares.jpg" alt="Profile" style="width: 100%; filter: grayscale(50%); border-radius: 4px;">
+
+    <header class="site-header">
+        <div class="header-bg"></div>
+        <a href="index.html" class="logo">Brendan<span>.</span></a>
+        
+        <nav class="site-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="works.html">Works</a>
+            <a href="experience.html">Experience</a>
+            <a href="education.html">Education</a>
+            <a href="resume.html">Resume</a>
+            <a href="references.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content about-wrapper">
+        
+        <div class="content-grid">
+            <div class="left">
+                <h2>About Me</h2>
+                <img src="img/Millares.jpg" alt="Profile" style="width: 100%; filter: grayscale(50%); border-radius: 4px;">
+            </div>
+            <div class="right">
+                <div style="height: 60px;"></div> 
+                <p class="lead">I blend my engineering voyage with <span style="color:#ccf381">strategic leadership and multimedia knowledge.</span></p>
+                <p>
+                    I am a third-year Computer Engineering student at De La Salle University. 
+                    I currently serve as the Vice President for Activities at the Lasallian Scholars Society.
+                    My work focuses on organizing large-scale events and utilizing data for decision-making.
+                </p>
+                <p>
+                    I aspire to become a Director for Quality and Operations Manager, creating meaningful impact and financial growth.
+                </p>
+                
+                <br>
+                <h3>Expertise</h3>
+                <ul class="skills-list">
+                    <li>Python</li>
+                    <li>Data Handling</li>
+                    <li>IoT Systems</li>
+                    <li>Event Management</li>
+                    <li>Notion & Sheets</li>
+                    <li>Publicity & Media</li>
+                    <li>Video Editing</li>
+                    <li>Directing and Filming</li>
+                </ul>
+            </div>
         </div>
-        <div class="right">
-            <div style="height: 60px;"></div> 
-            <p class="lead">I blend my engineering voyage with <span style="color:#ccf381">strategic leadership and multimedia knowledge.</span></p>
-            <p>
-                I am a third-year Computer Engineering student at De La Salle University. 
-                I currently serve as the Vice President for Activities at the Lasallian Scholars Society.
-                My work focuses on organizing large-scale events and utilizing data for decision-making.
-            </p>
-            <p>
-                I aspire to become a Director for Quality and Operations Manager, creating meaningful impact and financial growth.
-            </p>
-            
-            <br>
-            <h3>Expertise</h3>
-            <ul class="skills-list">
-                <li>Python</li>
-                <li>Data Handling</li>
-                <li>IoT Systems</li>
-                <li>Event Management</li>
-                <li>Notion & Sheets</li>
-                <li>Publicity & Media</li>
-                <li>Video Editing</li>
-                <li>Directing and Filming</li>
-            </ul>
-        </div>
-    </div>
+
+    </main>
+
 </body>
 </html>
