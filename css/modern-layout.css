@@ -14,7 +14,7 @@ body {
     overflow: hidden; 
 }
 
-/* --- HEADER SECTION --- */
+
 .site-header {
     height: 120px;
     flex-shrink: 0; 
@@ -26,7 +26,7 @@ body {
     position: relative;
     z-index: 10;
     
-    /* CRITICAL FIX: Forces header to stay dark, even on light pages like Resume */
+    
     background-color: #111111; 
 }
 

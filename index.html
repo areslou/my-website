@@ -6,13 +6,15 @@
     <title>Brendan Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Public+Sans:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/modern-layout.css">
+    <link rel="stylesheet" href="css/clock.css">
+    <link rel="stylesheet" href="css/animation.css">
 </head>
 <body>
 
     <header class="site-header">
         <div class="header-bg"></div>
         <a href="index.html" class="logo">Brendan<span>.</span></a>
-        
+
         <nav class="site-nav">
             <a href="index.html" class="active">Home</a>
             <a href="about.html">About</a>
@@ -26,15 +28,32 @@
 
     <main class="main-content home-layout">
         <div class="home-bg"></div>
-        
+
         <div class="container">
             <div class="pre-title">Hello, World!</div>
-            <h1>I am Brendan, <br> <span>Computer Engineering Student.</span></h1>
-            <div class="roles">
-                 Financial Risk & Analytics / Activities & Events Management / Scholar Services
+            <h1>I am Brendan, <br><span>Computer Engineering Student.</span></h1>
+            <div class="roles roles-typed" id="roles"></div>
+        </div>
+
+        <div class="clock-panel">
+            <div class="greeting-row">
+                <span id="greeting-icon" class="greeting-icon">☼</span>
+                <span id="greeting-text">Good Morning</span>
+            </div>
+            <div class="clock-block">
+                <div class="clock-label">Current Time</div>
+                <div id="clock">00<span class="colon">:</span>00<span class="colon">:</span>00</div>
+                <div class="clock-meta">
+                    <span id="period">AM</span>
+                    <span id="date">Loading...</span>
+                </div>
             </div>
         </div>
+
     </main>
+
+    <script src="js/clock.js"></script>
+    <script src="js/animation.js"></script>
 
 </body>
 </html>

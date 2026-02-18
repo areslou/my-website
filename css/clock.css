@@ -1,0 +1,105 @@
+/* ============================================
+   clock.css — Exercise 2 clock styles
+   Linked from index.html alongside modern-layout.css
+   ============================================ */
+
+.clock-panel {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.8s;
+}
+
+/* ── Greeting row ── */
+.greeting-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.greeting-icon {
+    font-size: 16px;
+}
+
+#greeting-text {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ccf381;
+}
+
+/* ── Clock block ── */
+.clock-block {
+    position: relative;
+    padding-left: 24px;
+}
+
+/* lime left border — matches .roles */
+.clock-block::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #ccf381;
+}
+
+.clock-label {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    margin-bottom: 10px;
+}
+
+#clock {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(48px, 6vw, 88px);
+    line-height: 1;
+    color: #ffffff;
+    letter-spacing: -3px;
+}
+
+/* blinking colons */
+.colon {
+    display: inline-block;
+    color: #ccf381;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.15; }
+}
+
+/* ── Period + date row ── */
+.clock-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+#period {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: #ccf381;
+}
+
+#date {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #767575;
+    text-transform: uppercase;
+}
