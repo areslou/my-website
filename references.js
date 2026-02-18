@@ -1,112 +1,92 @@
-// ─── FormSubmit + Validation Script ───────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", function () {
 
-const form = document.getElementById("contactForm");
-const formLoadTime = Date.now(); // for time-based filtering
+    // 1. SELECT ELEMENTS
+    const form = document.getElementById("contactForm");
+    const nameInput = document.getElementById("inputName");
+    const emailInput = document.getElementById("inputEmail");
+    const messageInput = document.getElementById("inputMessage");
+    const honeyInput = document.getElementsByName("_honey")[0];
 
-// ── Rate Limiting ──────────────────────────────────────────────────────────────
-let submitTimes = [];
+    // 2. DEFINE SPAM WORDS & CONFIG
+    const spamWords = [
+        "free money", "buy now", "click here", "subscribe", "promo",
+        "crypto", "bitcoin", "investment", "winner"
+    ];
+    const formLoadTime = Date.now();
+    let submitTimes = [];
 
-function isRateLimited() {
-  const now = Date.now();
-  submitTimes = submitTimes.filter(time => now - time < 60000);
-  if (submitTimes.length >= 3) return true;
-  submitTimes.push(now);
-  return false;
-}
-
-// ── Time-Based Filtering ───────────────────────────────────────────────────────
-function isTooFast() {
-  return (Date.now() - formLoadTime) / 1000 < 2;
-}
-
-// ── Spam Keyword Detection ─────────────────────────────────────────────────────
-const spamWords = ["free money", "buy now", "click here", "subscribe", "promo"];
-
-function containsSpam(message) {
-  const lower = message.toLowerCase();
-  return spamWords.some(word => lower.includes(word));
-}
-
-// ── Email Format Validation ────────────────────────────────────────────────────
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-// ── Visual Feedback Helpers ────────────────────────────────────────────────────
-function setError(inputId, message) {
-  const input = document.getElementById(inputId);
-  input.style.border = "2px solid #e74c3c";
-
-  // Remove existing error msg if any
-  const existing = input.parentElement.querySelector(".error-msg");
-  if (existing) existing.remove();
-
-  const msg = document.createElement("span");
-  msg.className = "error-msg";
-  msg.style.cssText = "color:#e74c3c; font-size:12px; margin-top:4px; display:block;";
-  msg.textContent = message;
-  input.parentElement.appendChild(msg);
-}
-
-function clearErrors() {
-  document.querySelectorAll(".error-msg").forEach(el => el.remove());
-  document.querySelectorAll("input, textarea").forEach(el => {
-    el.style.border = "";
-  });
-}
-
-// ── Main Submit Handler ────────────────────────────────────────────────────────
-if (form) {
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    clearErrors();
-
-    const name    = document.getElementById("inputName").value.trim();
-    const email   = document.getElementById("inputEmail").value.trim();
-    const message = document.getElementById("inputMessage").value.trim();
-
-    let hasError = false;
-
-    // Required field checks
-    if (name.length < 2) {
-      setError("inputName", "Name must be at least 2 characters.");
-      hasError = true;
+    // 3. GUARD: Make sure the form actually exists
+    if (!form) {
+        console.error("Form element with ID 'contactForm' not found!");
+        return;
     }
 
-    if (!isValidEmail(email)) {
-      setError("inputEmail", "Please enter a valid email address.");
-      hasError = true;
-    }
+    // 4. MAIN SUBMIT LISTENER
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        console.log("Form submission caught by JavaScript.");
 
-    if (message.length < 10) {
-      setError("inputMessage", "Message must be at least 10 characters.");
-      hasError = true;
-    }
+        // ─── CHECK A: Honeypot (Bot Trap) ───
+        if (honeyInput && honeyInput.value !== "") {
+            console.log("Bot detected via honeypot.");
+            return; // Stop silently
+        }
 
-    if (hasError) return;
+        // ─── CHECK B: Time-Based Filtering (Too Fast) ───
+        if (Date.now() - formLoadTime < 2000) {
+            alert("Submission was too fast. Are you human?");
+            return;
+        }
 
-    // Time-based filter
-    if (isTooFast()) {
-      alert("Submission was too fast. Please try again.");
-      return;
-    }
+        // ─── CHECK C: Rate Limiting (Too Many Requests) ───
+        const now = Date.now();
+        submitTimes = submitTimes.filter(t => now - t < 60000); // Keep submissions in last 60s
+        if (submitTimes.length >= 3) {
+            alert("Too many submissions. Please wait a minute.");
+            return;
+        }
+        submitTimes.push(now);
 
-    // Rate limiting
-    if (isRateLimited()) {
-      alert("Too many submissions. Please wait a minute.");
-      return;
-    }
+        // ─── CHECK D: Spam Keywords ───
+        // FIXED: Added null-check for messageInput before accessing .value
+        if (!messageInput) {
+            console.error("Message textarea with ID 'inputMessage' not found!");
+            alert("An unexpected error occurred. Please refresh and try again.");
+            return;
+        }
+        const messageValue = messageInput.value.toLowerCase().trim();
+        console.log("Checking message for spam:", messageValue);
 
-    // Spam keyword detection
-    if (containsSpam(message)) {
-      alert("Your message contains blocked spam keywords.");
-      setError("inputMessage", "Your message contains blocked spam keywords.");
-      return;
-    }
+        const foundSpam = spamWords.find(word => messageValue.includes(word));
+        if (foundSpam) {
+            alert(`Your message contains a blocked spam keyword: "${foundSpam}"`);
+            console.log("Spam keyword detected:", foundSpam);
+            return;
+        }
 
-    // All checks passed — submit to FormSubmit
-    form.action = "https://formsubmit.co/brendanxiao@gmail.com";
-    form.method = "POST";
-    form.submit();
-  });
-}
+        // ─── CHECK E: Email Validation ───
+        // FIXED: Added null-check for emailInput before accessing .value
+        if (!emailInput) {
+            console.error("Email input with ID 'inputEmail' not found!");
+            alert("An unexpected error occurred. Please refresh and try again.");
+            return;
+        }
+        const emailValue = emailInput.value.trim();
+        if (!emailValue.includes("@") || !emailValue.includes(".")) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        // ─── CHECK F: Name Field Not Empty ───
+        // FIXED: Added an extra safety check for the name field
+        if (!nameInput || nameInput.value.trim() === "") {
+            alert("Please enter your name.");
+            return;
+        }
+
+        // ─── ALL CHECKS PASSED ───
+        console.log("All validation passed. Submitting form...");
+        form.submit();
+    });
+
+});

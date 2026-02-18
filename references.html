@@ -6,7 +6,6 @@
     <title>Contact - Brendan Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Public+Sans:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="css/modern-layout.css">
     <link rel="stylesheet" href="css/references.css">
 </head>
@@ -27,9 +26,9 @@
     </header>
 
     <main class="main-content references-wrapper">
-        
+
         <h2>Get in Touch.</h2>
-    
+
         <div class="contact-info">
             loremipsum8@gmail.com | +63 977 388 8888
         </div>
@@ -45,22 +44,65 @@
 
         <p class="sub">Have a project or collaboration in mind? Send a message.</p>
 
-        <form id="contactForm">
+        <!--
+            FIXED: Moved the honeypot field INSIDE the form so JS can find it via
+            document.getElementsByName("_honey")[0]. If it's outside the form,
+            FormSubmit ignores it AND the JS selector may behave unexpectedly.
+
+            FIXED: Ensured all input IDs match exactly what references.js expects:
+              - id="inputName"     -> nameInput
+              - id="inputEmail"    -> emailInput
+              - id="inputMessage"  -> messageInput
+              - name="_honey"      -> honeyInput
+        -->
+        <form id="contactForm" action="https://formsubmit.co/brendanlou8@gmail.com" method="POST">
+
+            <!-- FormSubmit hidden config fields -->
             <input type="hidden" name="_subject" value="New Message from Portfolio">
             <input type="hidden" name="_captcha" value="false">
-            
+
+            <!-- Honeypot field: hidden from humans, visible to bots -->
+            <input
+                type="text"
+                name="_honey"
+                style="display:none !important"
+                tabindex="-1"
+                autocomplete="off"
+            >
+
             <div class="input-group">
-                <label>Name</label>
-                <input type="text" id="inputName" name="name" placeholder="Your Name" required>
+                <label for="inputName">Name</label>
+                <input
+                    type="text"
+                    id="inputName"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                >
             </div>
+
             <div class="input-group">
-                <label>Email</label>
-                <input type="email" id="inputEmail" name="email" placeholder="Your Email Address" required>
+                <label for="inputEmail">Email</label>
+                <input
+                    type="email"
+                    id="inputEmail"
+                    name="email"
+                    placeholder="Your Email Address"
+                    required
+                >
             </div>
+
             <div class="input-group">
-                <label>Message</label>
-                <textarea id="inputMessage" name="message" rows="4" placeholder="Tell me about your project" required></textarea>
+                <label for="inputMessage">Message</label>
+                <textarea
+                    id="inputMessage"
+                    name="message"
+                    rows="4"
+                    placeholder="Tell me about your project"
+                    required
+                ></textarea>
             </div>
+
             <button type="submit">Send Message</button>
         </form>
 
@@ -72,31 +114,18 @@
                     <h4>Chief Technology Officer</h4>
                     <p>Nexus Solutions Global</p>
                     <p>a.sterling@nexusglobal.com</p>
-                    <p>+63 917 123 4567</p>
                 </div>
-
                 <div class="ref-card">
                     <h3>Ms. Cassandra Wu</h3>
                     <h4>Head of Financial Analytics</h4>
                     <p>Vanguard Analytics</p>
                     <p>c.wu@vanguard.com</p>
-                    <p>+63 918 987 6543</p>
                 </div>
-
                 <div class="ref-card">
                     <h3>Engr. Robert Valdes</h3>
                     <h4>Dean, College of Engineering</h4>
                     <p>De La Salle University</p>
                     <p>robert.valdes@dlsu.edu.ph</p>
-                    <p>+63 920 111 2222</p>
-                </div>
-                
-                <div class="ref-card">
-                    <h3>Mr. Julian Thorne</h3>
-                    <h4>Director for Operations & Media</h4>
-                    <p>Innovate Tech Inc.</p>
-                    <p>j.thorne@innovatetech.com</p>
-                    <p>+63 915 555 8888</p>
                 </div>
             </div>
         </div>
@@ -107,6 +136,7 @@
 
     </main>
 
+    <!-- Script loaded at the bottom so the DOM is fully ready -->
     <script src="js/references.js"></script>
 
 </body>
