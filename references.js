@@ -1,6 +1,6 @@
 // ─── FormSubmit + Validation Script ───────────────────────────────────────────
 
-const form = document.querySelector("form");
+const form = document.getElementById("contactForm");
 const formLoadTime = Date.now(); // for time-based filtering
 
 // ── Rate Limiting ──────────────────────────────────────────────────────────────
@@ -104,8 +104,9 @@ if (form) {
       return;
     }
 
-    // All checks passed — submit the form to FormSubmit
-    alert("Message sent! Thank you, " + name + ".");
+    // All checks passed — submit to FormSubmit
+    form.action = "https://formsubmit.co/brendanxiao@gmail.com";
+    form.method = "POST";
     form.submit();
   });
 }
