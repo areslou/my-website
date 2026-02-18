@@ -8,6 +8,7 @@
     
     <link rel="stylesheet" href="css/modern-layout.css">
     <link rel="stylesheet" href="css/works.css">
+    <link rel="stylesheet" href="css/ball-animation.css">
 </head>
 <body>
 
@@ -191,9 +192,40 @@
                 </div>
             </div>
         </div>
+        
+        <div class="playground-section">
+            <div class="pre-title">Exercise 3.2 — Animation</div>
+            <h3>Bouncing <span>Ball</span></h3>
 
+            <div class="arena" id="arena">
+                <div id="ball"></div>
+            </div>
+
+            <div class="ball-controls">
+                <div class="stat">
+                    <div class="stat-label">X Position</div>
+                    <div class="stat-val" id="statX">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Y Position</div>
+                    <div class="stat-val" id="statY">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Bounces</div>
+                    <div class="stat-val" id="statB">0</div>
+                </div>
+                
+                <div style="margin-left: 20px;">
+                    <button class="ball-btn primary" id="pauseBtn" onclick="togglePause()">Pause</button>
+                    <button class="ball-btn" onclick="resetBall()">Reset</button>
+                </div>
+            </div>
+        </div>
+        
         <div style="height: 50px;"></div> 
 
     </main>
+
+    <script src="js/ball.js"></script>
 </body>
 </html>

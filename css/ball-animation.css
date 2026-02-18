@@ -1,0 +1,127 @@
+
+.playground-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #111; 
+}
+
+.playground-section .pre-title {
+    color: #ccf381; 
+    font-family: 'Public Sans', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.playground-section h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    color: white;
+    margin: 0 0 40px 0;
+    font-weight: 400;
+    text-align: center;
+}
+
+.playground-section h3 span {
+    color: #555; /* Darker grey for the second word */
+}
+
+/* The Game Arena */
+.arena {
+    width: min(800px, 100%);
+    height: 340px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #181818;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    /* The Grid Pattern */
+    background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+
+#ball {
+    width: 24px;
+    height: 24px;
+    background: #ccf381;
+    border-radius: 50%;
+    position: absolute;
+    
+ 
+    top: 0;
+    left: 0;
+    
+  
+    box-shadow: 0 0 15px 2px rgba(204, 243, 129, 0.6);
+    will-change: transform;
+}
+
+
+.ball-controls {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: 'Public Sans', sans-serif;
+}
+
+.stat {
+    border-left: 2px solid #ccf381; 
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.stat-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: #fff;
+    line-height: 1;
+    min-width: 40px;
+}
+
+
+.ball-btn {
+    padding: 12px 30px;
+    background: transparent;
+    border: 1px solid #333;
+    color: #888;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: 10px;
+}
+
+.ball-btn:hover {
+    border-color: #ccf381;
+    color: #ccf381;
+}
+
+
+.ball-btn.primary {
+    border-color: #ccf381;
+    color: #ccf381;
+}

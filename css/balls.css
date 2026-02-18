@@ -1,0 +1,133 @@
+
+.playground-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    gap: 36px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 60px;
+    background: linear-gradient(180deg, #111111 0%, #161616 100%);
+}
+
+/* Reusing your text styles for consistency */
+.playground-section .pre-title {
+    color: #ccf381;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.playground-section h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+    color: #fff;
+}
+
+.playground-section h3 span { 
+    color: #767575; 
+}
+
+/* The Animation Arena */
+.arena {
+    width: min(700px, 100%);
+    height: 340px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #181818;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px; 
+}
+
+/* Grid Background Pattern */
+.arena::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+/* The Ball */
+#ball {
+    width: 28px;
+    height: 28px;
+    background: #ccf381;
+    border-radius: 50%;
+    position: absolute;
+    top: 156px;
+    left: 0px;
+    box-shadow:
+        0 0 20px rgba(204, 243, 129, 0.4),
+        0 0 50px rgba(204, 243, 129, 0.15);
+    will-change: top, left; 
+}
+
+/* Controls & Stats Dashboard */
+.ball-controls {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'Public Sans', sans-serif;
+}
+
+.stat {
+    border-left: 2px solid #ccf381;
+    padding-left: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.stat-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: #fff;
+    line-height: 1;
+    min-width: 40px;
+}
+
+/* Buttons */
+.ball-btn {
+    padding: 10px 24px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Public Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ball-btn:hover {
+    border-color: #ccf381;
+    color: #ccf381;
+    box-shadow: 0 0 15px rgba(204, 243, 129, 0.1);
+}
+
+.ball-btn.primary {
+    border-color: #ccf381;
+    color: #ccf381;
+}
