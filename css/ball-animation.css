@@ -30,7 +30,7 @@
 }
 
 .playground-section h3 span {
-    color: #555; /* Darker grey for the second word */
+    color: #555; 
 }
 
 /* The Game Arena */
@@ -42,7 +42,7 @@
     position: relative;
     overflow: hidden;
     margin-bottom: 30px;
-    /* The Grid Pattern */
+   
     background-image:
         linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
