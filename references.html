@@ -45,21 +45,19 @@
 
         <p class="sub">Have a project or collaboration in mind? Send a message.</p>
 
-        <form action="https://formsubmit.co/brendanlou8@gmail.com" method="POST">
-            <input type="hidden" name="_next" value="https://yourwebsite.com/references.html"> 
-            <input type="hidden" name="_captcha" value="false">
-
+        <form onsubmit="return handleFormSubmit()">
+            
             <div class="input-group">
                 <label>Name</label>
-                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" id="inputName" name="name" placeholder="Your Name" required>
             </div>
             <div class="input-group">
                 <label>Email</label>
-                <input type="email" name="email" placeholder="Your Email Address" required>
+                <input type="email" id="inputEmail" name="email" placeholder="Your Email Address" required>
             </div>
             <div class="input-group">
                 <label>Message</label>
-                <textarea name="message" rows="4" placeholder="Tell me about your project" required></textarea>
+                <textarea id="inputMessage" name="message" rows="4" placeholder="Tell me about your project" required></textarea>
             </div>
             <button type="submit">Send Message</button>
         </form>
@@ -106,5 +104,8 @@
         </div>
 
     </main>
+
+    <script src="js/references.js"></script>
+
 </body>
 </html>
