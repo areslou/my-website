@@ -99,6 +99,7 @@ if (form) {
 
     // Spam keyword detection
     if (containsSpam(message)) {
+      alert("Your message contains blocked spam keywords.");
       setError("inputMessage", "Your message contains blocked spam keywords.");
       return;
     }
